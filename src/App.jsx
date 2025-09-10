@@ -120,30 +120,43 @@ function Renderings() {
 function Pricing() {
   const tiers = [
     {
-      name: "Essential",
-      price: "€1,200",
+      name: "Coordinazione matrimonio (solo giorno matrimonio)",
+      price: "€400",
       desc:
-        "Perfect for intimate gatherings or elopements. Lorem ipsum dolor sit amet.",
-      features: ["Timeline & checklist", "Vendor referrals", "Day-of coordination"],
+        "Avete già preparato il matrimonio, confidate in noi per essere sereni durante il grande giorno.",
+      features: [
+        "Coordinazione dei vendors",
+        "Coordinazione turntable",
+        "Tableau de mariage",
+        "Allestimenti minori"
+      ],
     },
     {
-      name: "Signature",
-      price: "€3,900",
-      desc:
-        "Our most popular package for classic weddings. Vestibulum ante ipsum primis.",
+      name: "Coordinazione evento extra",
+      price: "€200",
+      desc: "Per altri eventi (pizza party, brunch, welcome dinner, etc.).",
       features: [
-        "Design concept",
-        "Full vendor management",
-        "Rehearsal + day-of coordination",
+        "Coordinazione dei vendors",
+        "Coordinazione turntable",
+        "Tableau de mariage",
+        "Allestimenti minori"
+      ],
+    },
+    {
+      name: "Matrimonio completo",
+      price: "€2000",
+      desc:
+        "Servizio completo di wedding planning e design per organizzare il tuo matrimonio da sogno.",
+      features: [
+        "Progettazione e Pianificazione",
+        "Coordinazione",
+        "Allestimenti",
+        "Stationary",
+        "Rendering",
+        "Light & Flower design",
+        "Comunicazione illimitata"
       ],
       highlight: true,
-    },
-    {
-      name: "Couture",
-      price: "Custom",
-      desc:
-        "For destination or bespoke experiences. Curabitur accumsan lorem vitae nunc rhoncus.",
-      features: ["Bespoke design", "Travel logistics", "White-glove support"],
     },
   ];
 
