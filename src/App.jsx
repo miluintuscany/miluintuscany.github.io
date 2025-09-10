@@ -227,7 +227,18 @@ function Contact() {
         />
         <div className="mt-12 sm:w-[50vw] w-full mx-auto grid gap-8 items-start">
           <form
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={
+              (e) => {
+                e.preventDefault();
+                console.log(e);
+                const form = e.currentTarget;
+                const data = Object.fromEntries(new FormData(form).entries());
+                fetch(`https://lbbshreos4hukbynoznf5gdaoq0enplx.lambda-url.eu-south-1.on.aws/?${new URLSearchParams(data).toString()}`).then(() => {
+                  alert("Messaggio inviato! Ti risponderemo al più presto.");
+                  form.reset();
+                })
+              }
+            }
             className="rounded-3xl border border-zinc-200 p-6 bg-white shadow-sm"
           >
             <div className="grid md:grid-cols-2 gap-4">
@@ -235,6 +246,7 @@ function Contact() {
                 <span className="text-zinc-700">First name</span>
                 <input
                   required
+                  name="firstName"
                   className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-400"
                   placeholder="Jane"
                 />
@@ -243,6 +255,7 @@ function Contact() {
                 <span className="text-zinc-700">Last name</span>
                 <input
                   required
+                  name="lastName"
                   className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-400"
                   placeholder="Doe"
                 />
@@ -253,6 +266,7 @@ function Contact() {
               <input
                 type="email"
                 required
+                name="email"
                 className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-400"
                 placeholder="you@example.com"
               />
@@ -261,6 +275,7 @@ function Contact() {
               <span className="text-zinc-700">Message</span>
               <textarea
                 rows={5}
+                name="message"
                 defaultValue={"Ciao! Sarei interessato ad organizzare il mio matrimonio con voi."}
                 className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-400"
                 placeholder="Tell us about your vision…"
