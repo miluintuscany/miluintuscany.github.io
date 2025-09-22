@@ -234,7 +234,14 @@ function Contact() {
                 const form = e.currentTarget;
                 const data = Object.fromEntries(new FormData(form).entries());
                 fetch(`https://lbbshreos4hukbynoznf5gdaoq0enplx.lambda-url.eu-south-1.on.aws/?${new URLSearchParams(data).toString()}`).then(() => {
-                  alert("Messaggio inviato! Ti risponderemo al più presto.");
+                  window.Toastify({
+                    text: "Messaggio inviato con successo!",
+                    duration: 3000,
+                    newWindow: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "center", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                  }).showToast();
                   form.reset();
                 })
               }
