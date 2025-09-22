@@ -52,11 +52,14 @@ function Gallery() {
     "/light-tunnel-3.jpeg",
     "/ombrelli.jpeg",
     "/light-tunnel-birdseye.jpeg",
+    "/pizza_party/pizza_luce.jpeg",
     "/lights.jpeg",
     "/fiori-bianchi.jpeg",
     "/tableau.jpeg",
-    "/brunch-2.jpeg",
     "/tavolo-limoni.jpeg",
+    "/pizza_party/tavoli.jpeg",
+    "/brunch-2.jpeg",
+    "/pizza_party/tavolo_dappoggio.jpeg",
     "/tavolo-limoni-2.jpeg",
   ];
 
@@ -65,7 +68,7 @@ function Gallery() {
       <div className="max-w-6xl mx-auto px-4">
         <SectionTitle
           title="Photo Gallery"
-          subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar sapien non lorem malesuada."
+          subtitle="A gallery of some of our works, fulfilling couples' dreamed weddings"
         />
         <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3">
           {images.map((src, i) => (
@@ -88,28 +91,60 @@ function Gallery() {
 }
 
 function Renderings() {
-  const items = [
-      "/renderings/2.jpeg",
-      "/renderings/1.jpeg",
+  const beforeAfter = [
+      "/renderings/before.jpeg",
       "/renderings/3.jpeg",
+      "/renderings/result.jpeg",
   ];
+
+  const beforeAfterText = [
+    "Before",
+    "Rendering",
+    "After"
+  ];
+
+  const beforeAfter2 = [
+    "/renderings/before-2.png",
+    "/renderings/rendering-2.png",
+    "/renderings/result-2.jpeg"
+  ]
 
   return (
     <section id="renderings" className="py-20 md:py-28 bg-white">
       <div className="max-w-6xl mx-auto px-4">
         <SectionTitle
-          title="Le tue idee, il nostro design"
-          subtitle="Creiamo rendering 3D delle tue idee rimanendo fedeli al tuo stile"
+          title="Your ideas, our design"
+          subtitle="We create 3D renderings of your ideas staying loyal to your style"
         />
 
         <div className="mt-12 grid md:grid-cols-3 gap-6">
-          {items.map((r) => (
-              <img
-                src={r}
-                alt={`Rendering ${r}`}
-                className="h-96 w-full object-cover rounded-xl"
-                loading="lazy"
-              />
+          {beforeAfter.map((r, i) => (
+              <div className="h-96 w-80 block relative">
+                <p className="absolute bg-white text-lg p-1 rounded-br-md">
+                  {beforeAfterText[i]}
+                </p>
+                <img
+                  src={r}
+                  alt={`Rendering ${r}`}
+                  className="h-96 w-80 object-cover rounded-xl"
+                  loading="lazy"
+                />
+              </div>
+          ))}
+        </div>
+        <div className="mt-12 grid md:grid-cols-3 gap-6">
+          {beforeAfter2.map((r, i) => (
+              <div className="h-96 w-80 block relative">
+                <p className="absolute bg-white text-lg p-1 rounded-br-md">
+                  {beforeAfterText[i]}
+                </p>
+                <img
+                  src={r}
+                  alt={`Rendering ${r}`}
+                  className="h-96 w-80 object-cover rounded-xl"
+                  loading="lazy"
+                />
+              </div>
           ))}
         </div>
       </div>
@@ -120,41 +155,41 @@ function Renderings() {
 function Pricing() {
   const tiers = [
     {
-      name: "Coordinazione matrimonio (solo giorno matrimonio)",
+      name: "Wedding coordination (wedding day only)",
       price: "€400",
       desc:
-        "Avete già preparato il matrimonio, confidate in noi per essere sereni durante il grande giorno.",
+        "Have you already prepared it all? Trust us so you can relax on your big day.",
       features: [
-        "Coordinazione dei vendors",
-        "Coordinazione turntable",
+        "Vendor coordination",
+        "Turntable coordination",
         "Tableau de mariage",
-        "Allestimenti minori"
+        "Minor setups"
       ],
     },
     {
-      name: "Coordinazione evento extra",
+      name: "Extra events",
       price: "€200",
-      desc: "Per altri eventi (pizza party, brunch, welcome dinner, etc.).",
+      desc: "For other events (pizza party, brunch, welcome dinner, etc.).",
       features: [
-        "Coordinazione dei vendors",
-        "Coordinazione turntable",
+        "Vendor coordination",
+        "Turntable coordination",
         "Tableau de mariage",
-        "Allestimenti minori"
+        "Minor setups"
       ],
     },
     {
-      name: "Matrimonio completo",
+      name: "All-inclusive Wedding",
       price: "€2000",
       desc:
-        "Servizio completo di wedding planning e design per organizzare il tuo matrimonio da sogno.",
+        "Wedding Planning and Design at your disposal to for a dream wedding.",
       features: [
-        "Progettazione e Pianificazione",
-        "Coordinazione",
-        "Allestimenti",
-        "Stationary",
+        "Design and Planning",
+        "Coordination",
+        "Setups",
+        "Stationery",
         "Rendering",
         "Light & Flower design",
-        "Comunicazione illimitata"
+        "Unlimited communication"
       ],
       highlight: true,
     },
@@ -164,9 +199,8 @@ function Pricing() {
     <section id="pricing" className="py-20 md:py-28 bg-zinc-50">
       <div className="max-w-6xl mx-auto px-4">
         <SectionTitle
-          eyebrow="Wedding Planner & Wedding Designer"
-          title="I nostri prezzi"
-          subtitle="Scegli il pacchetto che fa per te o contattaci per un preventivo personalizzato."
+          title="Our prices"
+          subtitle="Choose the package that best suits you, or contact us for a personal quote."
         />
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           {tiers.map((t) => (
@@ -221,9 +255,8 @@ function Contact() {
     <section id="contact" className="py-20 md:py-28 bg-white">
       <div className="max-w-6xl mx-auto px-4">
         <SectionTitle
-          eyebrow="Wedding Planner & Wedding Designer"
-          title="Contattaci"
-          subtitle="Compila il modulo sottostante o scrivici direttamente ad events@miluintuscany.com"
+          title="Contact us"
+          subtitle="Submit this form or send us an email at events@miluintuscany.com"
         />
         <div className="mt-12 sm:w-[50vw] w-full mx-auto grid gap-8 items-start">
           <form
@@ -283,7 +316,7 @@ function Contact() {
               <textarea
                 rows={5}
                 name="message"
-                defaultValue={"Ciao! Sarei interessato ad organizzare il mio matrimonio con voi."}
+                defaultValue={"Hi! I'd love to organize my wedding with you."}
                 className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-400"
                 placeholder="Tell us about your vision…"
               />
@@ -291,15 +324,15 @@ function Contact() {
             <div className="mt-6 flex gap-3 items-center">
               <button
                 type="submit"
-                className="rounded-2xl cursor-pointer px-5 py-3 bg-zinc-900 text-white text-sm hover:bg-black transition"
+                className="rounded-2xl cursor-pointer px-5 py-3 mr-2 bg-zinc-900 text-white text-sm hover:bg-black transition"
               >
-                Invia
+                Send
               </button>
               <a
-                href="mailto:hello@amelieweddings.example"
-                className="text-sm text-foreground-400 hover:text-zinc-900"
+                href="mailto:events@miluintuscany.com"
+                className="text-sm underline text-foreground-400 hover:text-zinc-900"
               >
-                o scrivici direttamente
+                fancy an email instead?
               </a>
             </div>
           </form>
